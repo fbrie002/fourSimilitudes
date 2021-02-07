@@ -14,9 +14,16 @@ function setup() {
 function draw() {
     background(0, 15); /// transparency in the background is key to create the illusion of the tentacle tails/trails.
 
+        let color1 = createVector(255, 0, 0);
+        let color2 = createVector(0, 0, 255);
+        let lerpColor = p5.Vector.lerp(color1, color2, 0.5);
+
+//        fill(lerpColor);
+        fill(255, 0, 0);
+
     for (var i = 0; i < heads.length; i++) {
         ///attraction to the origin
-        target = createVector(width / 2, height / 2); //the target is the origin, they want to go back to it
+        target = createVector(width / 3.5, height / 2); //the target is the origin, they want to go back to it
         var attraction = p5.Vector.sub(target, heads[i].loc);
         attraction.setMag(0.4);
 
@@ -38,13 +45,19 @@ function draw() {
     if (mouseIsPressed) { //add heads if the mouse is pressed
         for (var i = 0; i < 1; i++) {
             heads.push(new Head);
+
+            //when the number of heads reaches 400, start again from 1 head so that the sketch can be used continuously by numerous users, without needing to reload the page
+            if(heads.length >= 400){
+                heads.length = 1;
+                heads.push(new Head);
+            }
         }
     }
 }
 
 function Head() {
     this.speed = createVector(random(-1, 1), random(-1, 1));
-    this.loc = createVector(width / 2, height / 2);
+    this.loc = createVector(width / 3.5, height / 2);
     this.mass = 3;
     this.diam = this.mass * 10;
     this.acceleration = createVector(0, 0);
@@ -60,9 +73,8 @@ function Head() {
     this.draw = function () {
         this.diam = this.mass * 5;
 
-        fill(constrain(frameCount, 0, 255), 0, 0); //linking the red value to the frameCount so the color appears gradually
         noStroke();
-        ellipse(this.loc.x, this.loc.y, this.diam / 2, this.diam / 2);
+        ellipse(this.loc.x, this.loc.y, this.diam / 2.5, this.diam / 2);
     }
 
     this.move = function () {
