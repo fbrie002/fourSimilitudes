@@ -1,6 +1,6 @@
 - Chasing Light -
 
-This is an initial example of the code for the Analogia box, without Arduino interaction.
+This is an initial example of the code for the Analogia box.
 
 Two lights, chasing one another, their speed controlled by a heart sensor. 
 
