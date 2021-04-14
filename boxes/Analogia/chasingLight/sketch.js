@@ -6,73 +6,70 @@ let sun;
 let star;
 
 let angle = 0;
-let speed = 0.9;
+let speed = 0.6;
 
 let heart;
 let sounds;
+let heartAmp;
+let soundsAmp;
+let heartVol;
+let soundsVol;
 
-var heartAmp;
-var soundsAmp;
-var heartVol;
-var soundsVol;
-
-function preload(){
-    heart = loadSound ('assets/just-heart.mp3');
+function preload() {
+    //load sound files
+    heart = loadSound('assets/just-heart.mp3');
     sounds = loadSound('assets/just-sounds.mp3');
 }
 
 function setup() {
-    heart.playMode('restart');
-    sounds.playMode('restart');
-
-//    heartAmp = new p5.Amplitude();
-//    heart.connect(heartAmp);
+    //created 2 aplitude objects to store a sound each so that they can inidivisually affect the orbs' radius
+    heartAmp = new p5.Amplitude();
+    heartAmp.setInput(heart);
     soundsAmp = new p5.Amplitude();
-    sounds.connect(soundsAmp);
-    
+    soundsAmp.setInput(sounds);
+
+    //reactive to screen size for encased screen
     createCanvas(windowWidth, windowHeight);
 
+    //colorMode HSB allows for the orbs' apparent glow
     colorMode(HSB, 360, 100, 100);
     ellipseMode(RADIUS);
-
     angleMode(DEGREES);
 }
 
 function draw() {
-    background(0, 255);
-//    heartVol = heartAmp.getLevel();
+    background(0);
+    //get the volume level from the amplitude object
+    heartVol = heartAmp.getLevel();
     soundsVol = soundsAmp.getLevel();
     
-    console.log(soundsVol);
+    //center sketch and rotate by angle
     translate(width / 2, height / 2);
     rotate(angle);
-    
-    sun = new Orb(-80, -cos(60), 50 - soundsVol*500);
-    star = new Orb(sin(70), (50), 30 + soundsVol*1000);
 
-    for (var i = 0; i < orbs.length; i++) {
-        orbs[i].run;
-    }
+    //two separate orbs are created, their radius dependent on the volume derived from the sound files 
+    sun = new Orb(-80, -cos(60), 50 - heartVol * 500);
+    star = new Orb(sin(70), (50), 30 + soundsVol * 1000);
 
+    //run the orbs and animate
     sun.run();
     star.run();
     angle = angle + speed;
-
-    //    speed = 1.1 * random(1,2);
-
 }
 
 function mousePressed() {
-    //    click = !click;
+    //mouePressed plays and pauses the sounds
     if (sounds.isPlaying()) {
-//        heart.stop();
+        heart.stop();
         sounds.stop();
     } else {
-//        heart.play();
-        sounds.play();
+        //sound files are looped to allow for seemless infinite play of sketch
+        heart.loop();
+        sounds.loop();
     }
 }
 
+//contructor function for the orbs
 function Orb(x, y, radius) {
     this.x = x;
     this.y = y;
@@ -83,6 +80,7 @@ function Orb(x, y, radius) {
     }
 
     this.draw = function () {
+        //the color is HSB based on the radius and creates the glow
         this.h = 1;
         for (let r = this.radius; r > 0; --r) {
             fill(this.h, 100, (this.h / r * 3) * 4);
