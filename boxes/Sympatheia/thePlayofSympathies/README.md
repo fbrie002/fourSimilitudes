@@ -1,8 +1,8 @@
 the Play of Sympathies
 
-This is an initial example of the code for the Sympatheia box, illustrating the attractive and repellant forces that characterize the play of sympathies, as described by Foucault, in The Order of Things. 
+This is the code for the Sympatheia box, illustrating the forces that characterize the play of sympathies, as described by Foucault, in The Order of Things. 
 
-The sketch is based on a basic boid-like structure, and resembles the movement of sea anemones with its mesmerising ondulating movement of attraction and separation.  
+The sketch is based on a basic boid-like structure, and resembles sea anemones with its mesmerising ondulating movement of attraction and separation.  
 
 The simulated forces used to mimic the attraction and repulsion of sympathy and antipathy:
  - force attracting the tentacles to the center 

@@ -6,3 +6,5 @@ Two lights, chasing one another, reverberating and morphing to a soundscape led 
 
 The sketch is in p5.js and uses the standard libraries. It draws upon this Solar System example by McMike: https://editor.p5js.org/McMike/sketches/9fn_RbQv8
 
+Contains original soundscape controlled by mousePressed.
+
