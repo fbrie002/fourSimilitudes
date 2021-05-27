@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aemulatio</title>
+    <script src="libraries/p5.min.js" type="text/javascript"></script>
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <style>
+        body {
+            background: black;
+            padding-top: 30px;
+            padding-left: 7%;
+            padding-right: 0%;
+            padding-bottom: 30px;
+            margin: 20px;
+            font-family: arial;
+            overflow: hidden;
+        }
+
+        .title-p {
+            letter-spacing: 3px;
+            font-size: 13px;
+            color: white;
+        }
+
+        .sub-title-p {
+            letter-spacing: 1px;
+            font-size: 12px;
+            color: white;
+            width: 240px;
+            height: auto;
+            text-align: justify;
+            text-justify: inter-word;
+            display: inline-block;
+            float: left;
+        }
+
+
+        canvas {
+            vertical-align: top;
+        }
+
+        .box {
+            display: inline-block;
+            float: left;
+            width: 65%;
+            justify-content: flex-end;
+            color: white;
+            letter-spacing: 3px;
+            font-size: 13px;
+            text-align: center;
+            padding-top: 40px;
+            padding-left: 5%;
+            padding-right: 0%;
+            padding-bottom: 40px;
+        }
+
+        i {
+            color: #feffc5;
+        }
+        
+        a {
+            color: #feffc5;
+        }
+        
+        a:hover {
+            color: #fefaa0;
+        }
+        
+        a:visited {
+            color: orange;
+        } 
+        
+                /*        mobile and tablet layout adjustments */
+        
+         @media only screen and (max-width: 1000px) {
+
+            body {
+                overflow: scroll;
+                align-items: center;
+                width: auto;
+                height: auto;
+                padding-left: 10vw;
+                padding-right: 10vw;  
+            }
+
+            .sub-title-p {
+                width: 100%;
+                font-size: 12px;
+                padding-bottom: 80px;
+                height: auto;
+                padding-bottom: 30px;
+            }
+
+            .box {
+                display: block;
+                text-align: center;
+                font-size: 14px;
+                padding-left: 0px;
+                width: 96%;
+                padding-bottom: 0px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="title-p">
+        <p>2. Aemulatio</p>
+    </div>
+    <br>
+    <div class="sub-title-p">
+        <p><i>"The bright colours of the flowers reproduce, without violence, the pure form of the sky.</i></p>
+        <p><i>Aemulatio</i> is a resemblance that needs no contact. There is something in emulation of the reflection and the mirror: it is the means whereby things scattered through the universe can answer one another. (...) By duplicating itself in a mirror the world abolishes the distance proper to it; in this way it overcomes the place alloted to each thing.</p>
+        <p>But which of these reflections coursing through space are the original images? Which is the reality and which the projection? It is often not possible to say, for emulation is a sort of natural twinship existing in things; it arises from a fold in being, the two sides of which stand immediately opposite to one another.</p> 
+
+        <p><i>The dark earth is the mirror of the star-sown sky".</i></p>
+      
+        <p style="font-size: 10px"> - Foucault, Michel. <i style="color: white; font-size: 10px; font-family: arial">The Order of Things: An Archaeology of the Human Sciences</i>. New York, NY: Pantheon Books, 1970.
+        </p>
+    </div>
+
+    <div class="box">
+
+        <video controls loop width="71%" height="70%" controls>
+  <source src="assets/Aemulatio.mp4" type="video/mp4">
+This browser doesn't support video, try another? ^^
+</video>
+        <br><br><br><br>
+            <a href="aemulatioModel/index.html">Enter Aemulatio</a>
+        <br><br><br><br>
+    </div>
+    
+
+
+
+</body>
+
+</html>
